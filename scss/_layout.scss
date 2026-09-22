@@ -1,0 +1,342 @@
+@use 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: variables.$bg-light;
+    color: variables.$text-dark;
+}
+
+// ღილაკები
+.btn-primary,
+.btn-signup,
+.btn-secondary {
+    background-color: variables.$primary-color;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: variables.$radius-btn;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken(variables.$primary-color, 10%);
+    }
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    color: variables.$text-dark;
+    width: 100%;
+}
+
+// ნავიგაცია
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: variables.$card-bg;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+
+    .logo {
+        font-size: 28px;
+        font-weight: 700;
+        cursor: pointer;
+        color: #000;
+        flex-shrink: 0;
+
+        .food {
+            color: variables.$secondary-color;
+        }
+    }
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+
+        a {
+            text-decoration: none;
+            color: variables.$text-dark;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+
+            &:hover,
+            &.active {
+                color: variables.$primary-color;
+            }
+        }
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .login-link {
+            text-decoration: none;
+            color: variables.$text-muted;
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+
+    .burger-menu {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: variables.$text-dark;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .burger-menu {
+            display: block;
+        }
+
+        .nav-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: variables.$card-bg;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0;
+            gap: 20px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+
+            &.active {
+                max-height: 400px;
+                padding: 20px 0;
+                opacity: 1;
+            }
+        }
+
+        .nav-links,
+        .header-actions {
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            gap: 15px;
+        }
+    }
+}
+
+// ბადე (Grid) რომელიც ყველგან ერთნაირად დალაგებს ბარათებს
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // მკაცრად ზუსტად 3 სვეტი!
+    gap: 30px;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr); // ტაბლეტზე 2 სვეტი
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr; // მობილურზე 1 სვეტი
+    }
+}
+// მთავარი ჰერო სექცია თავისი ფონით, ბექგრაუნდით და ცენტრში განლაგებით
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/restback.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+
+    .hero-content {
+        max-width: 650px;
+
+        h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: white;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #f1f1f1;
+        }
+    }
+}
+
+// კერძების სექცია და მისი სათაური
+.popular-dishes {
+    padding: 60px 5%;
+    width: 100%;
+
+    h2 {
+        text-align: center; // სათაური რომ ზუსტად შუაში იყოს
+        font-size: 36px;
+        margin-bottom: 40px; // დაშორება სათაურსა და ბარათებს შორის
+        color: variables.$text-dark;
+        font-weight: 700;
+    }
+}
+
+/* --- ავტორიზაციის მოდალი (Modal) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.modal-content {
+    background: variables.$card-bg;
+    width: 90%;
+    max-width: 400px;
+    border-radius: variables.$radius;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+
+    .modal-overlay.active & {
+        transform: translateY(0);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: variables.$text-muted;
+    cursor: pointer;
+}
+
+.modal-header {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+
+    .tab-btn {
+        flex: 1;
+        background: none;
+        border: none;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        color: variables.$text-muted;
+        cursor: pointer;
+        position: relative;
+
+        &.active {
+            color: variables.$primary-color;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: variables.$primary-color;
+            }
+        }
+    }
+}
+
+.auth-form {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: variables.$text-dark;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+
+            &:focus {
+                border-color: variables.$primary-color;
+            }
+        }
+    }
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.message {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+
+    &.success { color: green; }
+    &.error { color: red; }
+}

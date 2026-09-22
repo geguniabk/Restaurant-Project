@@ -1,0 +1,124 @@
+@use 'variables';
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 60px 5% 30px;
+    border-top: 1px solid #eaeaea;
+    color: variables.$text-dark;
+    width: 100%;
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        max-width: 1300px;
+        margin: 0 auto 40px;
+
+        @media (max-width: 900px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 550px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .footer-col {
+        h3, h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: variables.$text-dark;
+        }
+
+        p {
+            font-size: 14px;
+            color: variables.$text-muted;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 18px;
+            
+            a {
+                color: variables.$text-muted;
+                transition: color 0.3s;
+                
+                &:hover {
+                    color: variables.$primary-color;
+                }
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-bottom: 10px;
+
+                a {
+                    text-decoration: none;
+                    color: variables.$text-muted;
+                    font-size: 14px;
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: variables.$primary-color;
+                    }
+                }
+            }
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            input {
+                padding: 10px 14px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-size: 14px;
+                outline: none;
+
+                &:focus {
+                    border-color: variables.$primary-color;
+                }
+            }
+
+            button {
+                background-color: variables.$primary-color;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #e04a1b;
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        text-align: center;
+        border-top: 1px solid #e5e5e5;
+        padding-top: 20px;
+        font-size: 14px;
+        color: variables.$text-muted;
+
+        a {
+            color: variables.$primary-color;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    }
+}

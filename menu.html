@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Foodie</title>
+    <!-- შენი დაგენერირებული CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ნავიგაცია -->
+    <header class="navbar">
+        <div class="logo">Foodie</div>
+        
+        <nav class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+            </ul>
+            <div class="header-actions">
+                <a href="#" class="login-link">Login</a>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+        </nav>
+
+        <div class="burger-menu"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <!-- მენიუს და ფილტრების სექცია (ინლაინ სტილების გარეშე) -->
+    <section class="menu-section layout-sidebar">
+        
+        <!-- მარცხენა პანელი (ფილტრები) -->
+        <aside class="sidebar-filters">
+            <h3>Filters</h3>
+            
+            <div class="filter-group">
+                <label>Search</label>
+                <input type="text" id="search-input" placeholder="Search dishes...">
+            </div>
+
+            <div class="filter-group toggle-group">
+                <label><input type="checkbox" id="veg-toggle"> Vegetarian Only</label>
+            </div>
+
+            <div class="filter-group">
+                <label>Min price</label>
+                <input type="number" id="min-price" placeholder="0">
+                
+                <label style="margin-top: 10px;">Max price</label>
+                <input type="number" id="max-price" placeholder="500">
+            </div>
+
+            <button id="clear-filters" class="btn-secondary">Clear All Filters</button>
+        </aside>
+
+        <!-- მარჯვენა მხარე (კერძების ბადე) -->
+        <main class="menu-content">
+            <div class="menu-header">
+                <h2>Menu</h2>
+                <p id="products-count">Showing 0 products</p>
+            </div>
+            
+            <div id="menu-dishes-container" class="dishes-grid">
+                <!-- კერძები ჩაიტვირთება აქ -->
+            </div>
+        </main>
+
+    </section>
+
+    <!-- შენი სკრიპტი -->
+    <script src="js/script.js"></script>
+</body>
+</html>
