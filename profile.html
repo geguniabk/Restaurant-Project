@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings - Foodie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main class="profile-container">
+        <h1 class="page-title">Profile Settings</h1>
+
+        <div class="profile-tabs">
+            <button class="tab-btn active" data-tab="personal">Personal Info</button>
+            <button class="tab-btn" data-tab="password">Change Password</button>
+            <button class="tab-btn" data-tab="account">Account Settings</button>
+        </div>
+
+        <div class="profile-card">
+
+            <!-- 1. Personal Info -->
+            <div id="tab-personal" class="tab-content active">
+                <div class="card-header">
+                    <h2>Personal Information</h2>
+                    <p>Update your personal details</p>
+                </div>
+
+                <div class="profile-summary">
+                    <div class="profile-avatar no-image" id="profile-avatar">
+                        <img id="profile-img-preview" alt="Profile picture">
+                        <span id="profile-initials">?</span>
+                    </div>
+                    <div class="profile-summary-info">
+                        <h3 id="summary-name">Loading...</h3>
+                        <p id="summary-email"></p>
+                        <span id="summary-since" class="member-since"></span>
+                    </div>
+                </div>
+
+                <form id="profile-form" autocomplete="off">
+                    <div class="form-group">
+                        <label for="prof-picture">Picture</label>
+                        <input type="url" id="prof-picture" name="picture-url" placeholder="Image URL" autocomplete="off">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prof-firstname">First Name</label>
+                            <input type="text" id="prof-firstname" placeholder="First Name" autocomplete="given-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prof-lastname">Last Name</label>
+                            <input type="text" id="prof-lastname" placeholder="Last Name" autocomplete="family-name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-email">Email</label>
+                        <input type="email" id="prof-email" placeholder="example@mail.com" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-phone">Phone Number</label>
+                        <input type="tel" id="prof-phone" placeholder="Phone Number" autocomplete="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-address">Address</label>
+                        <textarea id="prof-address" rows="3" placeholder="Address" autocomplete="street-address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-age">Age</label>
+                        <input type="number" id="prof-age" placeholder="Age" min="0" max="120" autocomplete="off">
+                    </div>
+                    <p id="profile-message" class="form-message"></p>
+                    <button type="submit" class="btn-save">Save Changes</button>
+                </form>
+            </div>
+
+            <!-- 2. Change Password -->
+            <div id="tab-password" class="tab-content">
+                <div class="card-header">
+                    <h2>Change Password</h2>
+                    <p>Update your account security credentials</p>
+                </div>
+                <form id="password-form">
+                    <!-- დამალული username, რომ Safari-მ პაროლების შეთავაზება სხვა ველზე არ გამოაჩინოს -->
+                    <input type="text" id="pw-username" class="visually-hidden" autocomplete="username" tabindex="-1" aria-hidden="true" readonly>
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" placeholder="Enter current password" autocomplete="current-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" placeholder="Enter new password" autocomplete="new-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" placeholder="Confirm new password" autocomplete="new-password" required>
+                    </div>
+                    <p id="password-message" class="form-message"></p>
+                    <button type="submit" class="btn-save">Update Password</button>
+                </form>
+            </div>
+
+            <!-- 3. Account Settings -->
+            <div id="tab-account" class="tab-content">
+                <div class="card-header">
+                    <h2>Account Settings</h2>
+                    <p>Manage your account preferences</p>
+                </div>
+
+                <div class="account-section">
+                    <h3>Notifications</h3>
+                    <p>Receive promotional emails and updates.</p>
+                </div>
+
+                <div class="account-section">
+                    <h3>Session</h3>
+                    <p>Sign out from this device.</p>
+                    <button type="button" id="logout-account-btn" class="btn-outline">Log out</button>
+                </div>
+
+                <div class="account-section danger-zone">
+                    <h3>Delete account</h3>
+                    <p>This will permanently remove your account. This action cannot be undone.</p>
+                    <button type="button" id="delete-account-btn" class="btn-danger">Delete Account</button>
+
+                    <div id="delete-confirm" class="delete-confirm" hidden>
+                        <p>Are you sure you want to delete your account?</p>
+                        <div class="delete-confirm-actions">
+                            <button type="button" id="delete-confirm-yes" class="btn-danger">Yes, delete</button>
+                            <button type="button" id="delete-confirm-no" class="btn-outline">Cancel</button>
+                        </div>
+                    </div>
+                    <p id="account-message" class="form-message"></p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

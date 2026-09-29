@@ -5,35 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodie - Delicious Food</title>
     <!-- შენი დაგენერირებული CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=99">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- ნავიგაცია -->
-    <header class="navbar">
-        <div class="logo">Foodie<span class="food">.</span></div>
-        
-        <nav class="nav-container">
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-            </ul>
-            <div class="header-actions">
-                <a href="#" class="login-link">Login</a>
-                <button class="btn-signup">Sign Up</button>
-            </div>
-        </nav>
-
-        <button class="burger-menu"><i class="fas fa-bars"></i></button>
-    </header>
+    <div id="header-placeholder"></div>
 
     <!-- მთავარი ჰერო სექცია -->
     <section class="hero">
         <div class="hero-content">
             <h1>Delicious Food Delivered to Your Door</h1>
             <p>Fresh ingredients, authentic flavors, fast delivery</p>
-            <button class="btn-primary">Order Now</button>
+            <a href="menu.html" class="btn-primary">Order Now</a>
+
         </div>
     </section>
 
@@ -102,55 +87,7 @@
         </div>
     </footer>
 
-
-        <!-- ავტორიზაციის მოდალი -->
-    <div id="auth-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button id="close-modal" class="close-btn"><i class="fas fa-times"></i></button>
-
-            <div class="modal-header">
-                <button id="tab-login" class="tab-btn active">Login</button>
-                <button id="tab-register" class="tab-btn">Sign Up</button>
-            </div>
-
-            <div id="auth-message" class="message"></div>
-
-            <!-- ლოგინის ფორმა -->
-            <form id="login-form" class="auth-form active">
-                <div class="input-group">
-                    <label>Email</label>
-                    <input type="email" id="login-email" required>
-                </div>
-                <div class="input-group">
-                    <label>Password</label>
-                    <input type="password" id="login-password" required>
-                </div>
-                <button type="submit" class="btn-primary w-100">შესვლა</button>
-            </form>
-
-            <!-- რეგისტრაციის ფორმა -->
-            <form id="register-form" class="auth-form">
-                <div class="input-group">
-                    <label>First Name</label>
-                    <input type="text" id="reg-firstname" required>
-                </div>
-                <div class="input-group">
-                    <label>Last Name</label>
-                    <input type="text" id="reg-lastname" required>
-                </div>
-                <div class="input-group">
-                    <label>Email</label>
-                    <input type="email" id="reg-email" required>
-                </div>
-                <div class="input-group">
-                    <label>Password</label>
-                    <input type="password" id="reg-password" required>
-                </div>
-                <button type="submit" class="btn-primary w-100">რეგისტრაცია</button>
-            </form>
-        </div>
-    </div>
-
+    
 
     <!-- სკრიპტი -->
     <script src="js/script.js"></script>

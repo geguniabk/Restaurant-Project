@@ -1,0 +1,91 @@
+<header class="navbar">
+    <a href="index.html" class="logo">Foodie<span class="food">.</span></a>
+
+    <nav class="nav-container">
+        <div class="close-menu"><i class="fas fa-times"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li><a href="menu.html" id="nav-menu">Menu</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="#" class="login-link">Login</a>
+            <button class="btn-signup">Sign Up</button>
+        </div>
+    </nav>
+
+    <div class="header-actions">
+        <div class="cart-menu-container">
+            <button class="cart-icon" aria-label="Cart" id="cart-icon-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-count-badge" style="display:none;">0</span>
+            </button>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <div class="cart-dropdown-header">კალათა</div>
+                <div id="cart-items-list" class="cart-items-list">
+                    <p class="cart-empty">კალათა ცარიელია</p>
+                </div>
+                <div class="cart-dropdown-footer">
+                    <div class="cart-total">ჯამი: <span id="cart-total-amount">$0.00</span></div>
+                    <button id="checkout-btn" class="btn-primary w-100">Checkout</button>
+                </div>
+            </div>
+        </div>
+        <button class="burger-menu"><i class="fas fa-bars"></i></button>
+    </div>
+</header>
+
+<!-- ერთადერთი ავტორიზაციის მოდალი მთელი საიტისთვის -->
+<div id="auth-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button type="button" id="close-modal" class="close-btn"><i class="fas fa-times"></i></button>
+
+        <div class="modal-header">
+            <button type="button" id="tab-login" class="tab-btn active">Login</button>
+            <button type="button" id="tab-register" class="tab-btn">Sign Up</button>
+        </div>
+
+        <div id="auth-message" class="message"></div>
+
+        <form id="login-form" class="auth-form active">
+            <div class="input-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" autocomplete="username" required>
+            </div>
+            <div class="input-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" autocomplete="current-password" required>
+            </div>
+            <button type="submit" class="btn-primary w-100">Sign In</button>
+        </form>
+
+        <form id="register-form" class="auth-form">
+            <div class="input-group">
+                <label for="reg-firstname">First Name</label>
+                <input type="text" id="reg-firstname" required>
+            </div>
+            <div class="input-group">
+                <label for="reg-lastname">Last Name</label>
+                <input type="text" id="reg-lastname" required>
+            </div>
+            <div class="input-group">
+                <label for="reg-email">Email</label>
+                <input type="email" id="reg-email" autocomplete="email" required>
+            </div>
+            <div class="input-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" autocomplete="new-password" required>
+            </div>
+            <button type="submit" class="btn-primary w-100">რეგისტრაცია</button>
+        </form>
+
+        <form id="verify-form" class="auth-form">
+            <p class="verify-hint">კოდი გამოგზავნილია: <b id="verify-email"></b></p>
+            <div class="input-group">
+                <label for="verify-code">ვერიფიკაციის კოდი</label>
+                <input type="text" id="verify-code" inputmode="numeric" required>
+            </div>
+            <button type="submit" class="btn-primary w-100">დადასტურება</button>
+            <button type="button" id="resend-code" class="btn-secondary w-100" style="margin-top:10px">კოდის თავიდან გაგზავნა</button>
+        </form>
+    </div>
+</div>

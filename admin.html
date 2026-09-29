@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie - Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css?v=99">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main class="admin-page container">
+        <h1>Admin Panel</h1>
+
+        <section class="admin-section">
+            <h2>ახალი კატეგორია</h2>
+            <form id="add-category-form" class="admin-form">
+                <div class="input-group">
+                    <label for="cat-name">კატეგორიის სახელი</label>
+                    <input type="text" id="cat-name" required>
+                </div>
+                <button type="submit" class="btn-primary">დამატება</button>
+                <p id="category-message" class="message"></p>
+            </form>
+            <div id="admin-categories-list" class="admin-products-list" style="margin-top:20px;"></div>
+        </section>
+
+        <section class="admin-section">
+            <h2>ახალი პროდუქტი</h2>
+            <form id="add-product-form" class="admin-form">
+                <div class="input-group">
+                    <label for="prod-name">სახელი</label>
+                    <input type="text" id="prod-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="prod-description">აღწერა</label>
+                    <input type="text" id="prod-description" required>
+                </div>
+                <div class="input-group">
+                    <label for="prod-category">კატეგორია</label>
+                    <select id="prod-category" required></select>
+                </div>
+                <div class="input-group">
+                    <label for="prod-price">ფასი</label>
+                    <input type="number" id="prod-price" min="0" step="0.01" required>
+                </div>
+                <div class="input-group">
+                    <label for="prod-spiciness">სიცხარე (0-5)</label>
+                    <input type="number" id="prod-spiciness" min="0" max="5" value="0">
+                </div>
+                <div class="input-group">
+                    <label for="prod-image">სურათის URL</label>
+                    <input type="text" id="prod-image">
+                </div>
+                <div class="input-group">
+                    <label for="prod-method">მომზადების წესი</label>
+                    <input type="text" id="prod-method" required>
+                </div>
+                <div class="input-group">
+                    <label for="prod-ingredients">ინგრედიენტები (მძიმით გამოყოფილი)</label>
+                    <input type="text" id="prod-ingredients" placeholder="ფქვილი, კვერცხი, რძე" required>
+                </div>
+                <div class="input-group toggle-row">
+                    ვეგეტარიანული
+                    <label class="switch">
+                        <input type="checkbox" id="prod-vegetarian">
+                        <span class="slider-track"></span>
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary">დამატება</button>
+                <p id="product-message" class="message"></p>
+            </form>
+        </section>
+
+        <section class="admin-section">
+            <h2>არსებული პროდუქტები</h2>
+            <div id="admin-products-list" class="admin-products-list">
+                <p>იტვირთება...</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

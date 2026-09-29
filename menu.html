@@ -3,73 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Foodie</title>
-    <!-- შენი დაგენერირებული CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>Foodie - Menu</title>
+    <link rel="stylesheet" href="css/style.css?v=99">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- ნავიგაცია -->
-    <header class="navbar">
-        <div class="logo">Foodie</div>
-        
-        <nav class="nav-container">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html" class="active">Menu</a></li>
-            </ul>
-            <div class="header-actions">
-                <a href="#" class="login-link">Login</a>
-                <button class="btn-signup">Sign Up</button>
-            </div>
-        </nav>
+    <!-- აქ დინამიურად ჩაიტვირთება header.html -->
+    <div id="header-placeholder"></div>
 
-        <div class="burger-menu"><i class="fas fa-bars"></i></div>
-    </header>
+    <!-- მთავარი მენიუს სექცია -->
+    <main class="menu-page container">
 
-    <!-- მენიუს და ფილტრების სექცია (ინლაინ სტილების გარეშე) -->
-    <section class="menu-section layout-sidebar">
-        
-        <!-- მარცხენა პანელი (ფილტრები) -->
-        <aside class="sidebar-filters">
-            <h3>Filters</h3>
-            
+        <!-- მარცხენა ფილტრები -->
+        <aside class="filters-sidebar">
+            <h2>Filters</h2>
+
             <div class="filter-group">
                 <label>Search</label>
                 <input type="text" id="search-input" placeholder="Search dishes...">
             </div>
 
-            <div class="filter-group toggle-group">
-                <label><input type="checkbox" id="veg-toggle"> Vegetarian Only</label>
+            <div class="filter-group">
+                <label>Categories</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="Desserts"> Desserts</label>
+                    <label><input type="checkbox" value="First Courses"> First Courses</label>
+                    <label><input type="checkbox" value="Main Courses"> Main Courses</label>
+                    <label><input type="checkbox" value="Pizzas"> Pizzas</label>
+                    <label><input type="checkbox" value="Side Dishes"> Side Dishes</label>
+                    <label><input type="checkbox" value="Appetizers"> Appetizers</label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="toggle-row">
+                    Vegetarian Only
+                    <label class="switch">
+                        <input type="checkbox" id="filter-vegetarian">
+                        <span class="slider-track"></span>
+                    </label>
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <label>Spiciness (0-5)</label>
+                <input type="range" id="filter-spiciness" min="0" max="5" step="1" value="0">
+                <span id="spiciness-label">Level: not selected</span>
+                <button type="button" id="clear-spiciness" class="btn-text-small">Clear</button>
+            </div>
+
+            <div class="filter-group">
+                <label>Minimum Rating</label>
+                <input type="range" id="filter-rating" min="0" max="5" step="0.5" value="0">
+                <span id="rating-label">0.0+</span>
             </div>
 
             <div class="filter-group">
                 <label>Min price</label>
-                <input type="number" id="min-price" placeholder="0">
-                
-                <label style="margin-top: 10px;">Max price</label>
-                <input type="number" id="max-price" placeholder="500">
+                <input type="range" id="filter-minprice" min="0" max="500" step="5" value="0">
+                <span id="minprice-label">$0</span>
             </div>
 
-            <button id="clear-filters" class="btn-secondary">Clear All Filters</button>
+            <div class="filter-group">
+                <label>Max price</label>
+                <input type="range" id="filter-maxprice" min="0" max="500" step="5" value="500">
+                <span id="maxprice-label">$500+</span>
+            </div>
+
+            <button id="clear-filters" class="btn-clear">Clear All Filters</button>
         </aside>
 
-        <!-- მარჯვენა მხარე (კერძების ბადე) -->
-        <main class="menu-content">
+        <!-- მარჯვენა პროდუქტების მხარე -->
+        <section class="menu-content">
             <div class="menu-header">
-                <h2>Menu</h2>
                 <p id="products-count">Showing 0 products</p>
             </div>
-            
+
+            <!-- პროდუქტების გრიდი -->
             <div id="menu-dishes-container" class="dishes-grid">
-                <!-- კერძები ჩაიტვირთება აქ -->
+                <!-- JS ჩატვირთავს კერძებს აქ -->
             </div>
-        </main>
 
-    </section>
+            <div class="pagination">
+                <button id="prev-page" class="btn-text">‹ Prev</button>
+                <button id="next-page" class="btn-text">Next ></button>
+            </div>
+        </section>
+    </main>
 
-    <!-- შენი სკრიპტი -->
+    <div id="footer-placeholder"></div>
+
     <script src="js/script.js"></script>
 </body>
 </html>
