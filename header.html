@@ -55,7 +55,22 @@
                 <label for="login-password">Password</label>
                 <input type="password" id="login-password" autocomplete="current-password" required>
             </div>
-            <button type="submit" class="btn-primary w-100">Sign In</button>
+                        <button type="submit" class="btn-primary w-100">Sign In</button>
+            <p style="text-align:center; margin-top:12px;">
+                <a href="#" id="forgot-password-link" style="font-size:0.85rem; color:#777;">დაგავიწყდა პაროლი?</a>
+            </p>
+        </form>
+
+        <form id="forgot-password-form" class="auth-form">
+            <p class="verify-hint">შეიყვანეთ ელფოსტა, გამოგიგზავნით პაროლის აღდგენის ბმულს</p>
+            <div class="input-group">
+                <label for="forgot-email">Email</label>
+                <input type="email" id="forgot-email" required>
+            </div>
+            <button type="submit" class="btn-primary w-100">ბმულის გაგზავნა</button>
+            <button type="button" id="back-to-login-btn" class="btn-secondary w-100" style="margin-top:10px">Login-ში დაბრუნება</button>
+        </form>
+
         </form>
 
         <form id="register-form" class="auth-form">

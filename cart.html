@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>კალათა | Foodie</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        .cart-page-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px 80px;
+            min-height: 55vh;
+        }
+
+        .cart-page-wrapper h1 {
+            font-size: 1.9rem;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+        .cart-page-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: #777;
+        }
+
+        .cart-page-empty a {
+            display: inline-block;
+            margin-top: 18px;
+            color: #df4b37;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .cart-page-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .cart-page-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 16px 20px;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .cart-page-item-name {
+            font-weight: 600;
+            color: #222;
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .cart-page-item-qty {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-page-item-qty button {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: #f7f7f7;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cart-page-item-price {
+            font-weight: 700;
+            color: #df4b37;
+            min-width: 70px;
+            text-align: right;
+        }
+
+        .cart-page-item-remove {
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+
+        .cart-page-item-remove:hover {
+            color: #df4b37;
+        }
+
+        .cart-page-summary {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 24px;
+            max-width: 380px;
+            margin-left: auto;
+        }
+
+        .cart-page-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .cart-page-summary-row.total {
+            font-weight: 700;
+            color: #222;
+            font-size: 1.15rem;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+
+        .confirm-order-btn {
+            width: 100%;
+            margin-top: 18px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background-color: #df4b37;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .confirm-order-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .cart-page-wrapper {
+                padding: 30px 15px 60px;
+            }
+
+            .cart-page-wrapper h1 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            .cart-page-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 14px;
+            }
+
+            .cart-page-item-name {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .cart-page-item-qty {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .cart-page-item-price {
+                text-align: left;
+            }
+
+            .cart-page-item-remove {
+                position: absolute;
+                top: 14px;
+                right: 14px;
+            }
+
+            .cart-page-item {
+                position: relative;
+            }
+
+            .cart-page-summary {
+                max-width: 100%;
+                margin-left: 0;
+                padding: 18px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .cart-page-item-qty button {
+                width: 30px;
+                height: 30px;
+            }
+
+            .confirm-order-btn {
+                font-size: 0.95rem;
+                padding: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main class="cart-page-wrapper">
+        <h1>თქვენი კალათა</h1>
+        <div id="cart-page-content">
+            <p style="text-align:center; color:#999;">იტვირთება...</p>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/assistant.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/cart.js"></script>
+
+</body>
+</html>

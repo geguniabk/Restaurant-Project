@@ -1,0 +1,120 @@
+@use './variables';
+
+// --- Admin Panel: გამორჩეული, პროფესიონალური ფერადი სქემა ---
+// (წითელი brand-ფერის ნაცვლად მუქი ლურჯი/ნაცრისფერი, რომ ადმინის
+//  გარემო ვიზუალურად გამოირჩეოდეს customer-facing გვერდებისგან)
+
+$admin-primary: #2f3e56;
+$admin-primary-hover: #24314a;
+$admin-accent: #5c7cfa;
+$admin-bg: #f4f6fa;
+$admin-border: #e1e5ec;
+$admin-danger: #e5484d;
+
+.admin-page {
+    background-color: $admin-bg;
+    min-height: 80vh;
+    padding: 40px 5%;
+
+    h1 {
+        color: $admin-primary;
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        padding-bottom: 14px;
+        border-bottom: 2px solid $admin-primary;
+        display: inline-block;
+    }
+}
+
+.admin-section {
+    background: #fff;
+    border: 1px solid $admin-border;
+    border-radius: 10px;
+    padding: 26px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 8px rgba(47, 62, 86, 0.06);
+
+    h2 {
+        font-size: 1.15rem;
+        color: $admin-primary;
+        margin-bottom: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &::before {
+            content: '';
+            width: 6px;
+            height: 18px;
+            background: $admin-accent;
+            border-radius: 3px;
+            display: inline-block;
+        }
+    }
+}
+
+.admin-form {
+    .input-group {
+        label {
+            color: $admin-primary;
+            font-size: 0.85rem;
+        }
+
+        input,
+        select {
+            border: 1px solid $admin-border;
+
+            &:focus {
+                border-color: $admin-accent;
+                outline: none;
+            }
+        }
+    }
+
+    .btn-primary {
+        background-color: $admin-primary;
+
+        &:hover {
+            background-color: $admin-primary-hover;
+        }
+    }
+
+    .btn-secondary {
+        background: #fff;
+        border: 1px solid $admin-border;
+        color: $admin-primary;
+
+        &:hover {
+            background: $admin-bg;
+        }
+    }
+}
+
+.admin-products-list {
+    .admin-product-row {
+        border-bottom: 1px solid $admin-border;
+
+        .admin-product-name {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .admin-product-price {
+            color: $admin-accent;
+        }
+
+        .btn-text {
+            color: $admin-accent;
+            font-weight: 600;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .admin-delete-btn,
+        .admin-delete-category-btn {
+            color: $admin-danger;
+        }
+    }
+}

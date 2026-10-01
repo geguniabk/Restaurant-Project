@@ -28,9 +28,9 @@
         </section>
 
         <section class="admin-section">
-            <h2>ახალი პროდუქტი</h2>
-            <form id="add-product-form" class="admin-form">
-                <div class="input-group">
+              <h2 id="product-form-title">ახალი პროდუქტი</h2>
+                <form id="add-product-form" class="admin-form">
+                    <div class="input-group">
                     <label for="prod-name">სახელი</label>
                     <input type="text" id="prod-name" required>
                 </div>
@@ -69,10 +69,14 @@
                         <span class="slider-track"></span>
                     </label>
                 </div>
+         <div style="display:flex; gap:10px;">
                 <button type="submit" class="btn-primary">დამატება</button>
+                <button type="button" id="cancel-edit-btn" class="btn-secondary" style="display:none; width:auto; padding:10px 24px;">გაუქმება</button>
+                </div>
                 <p id="product-message" class="message"></p>
             </form>
         </section>
+
 
         <section class="admin-section">
             <h2>არსებული პროდუქტები</h2>
@@ -84,6 +88,10 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="js/script.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/assistant.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/admin.js"></script>
+
 </body>
 </html>
