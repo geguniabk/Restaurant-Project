@@ -6,9 +6,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     const adminProductsList = document.getElementById('admin-products-list');
 
     if (adminProductsList) {
-        // დაცვა: მხოლოდ admin როლის მქონემ ნახოს ეს გვერდი
+        // ⚠️ დემო-რეჟიმი: API-ს role ვერ ვანიჭებთ ჩვენი მხრიდან, ამიტომ
+        // ვიზუალური დემოსთვის კონკრეტულ email-ს ვუშვებთ admin.html-ზე.
+        // (ფორმების submit-ი მაინც API-ს namdvili role-permission-ზეა
+        // დამოკიდებული — თუ ბაზაში admin არ ხარ, add/edit/delete 401/403-ს დააბრუნებს.)
+        const ADMIN_DEMO_EMAIL = 'geguniabk@gmail.com';
+
+        // დაცვა: admin როლის მქონემ ან დემო-email-ის მფლობელმა ნახოს ეს გვერდი
         const meUser = token ? await fetchCurrentUser(token) : null;
-        const isAdminUser = isAdminRole(meUser?.role ?? (token ? getUserRole(token) : null));
+        const isAdminUser = isAdminRole(meUser?.role ?? (token ? getUserRole(token) : null))
+            || meUser?.email === ADMIN_DEMO_EMAIL;
         if (!token || !isAdminUser) {
             window.location.href = 'index.html';
         } else {
